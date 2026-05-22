@@ -193,7 +193,7 @@ export default function Home() {
             onClick={() => setChatOpen(v => !v)}
             style={{ fontSize: 11, fontWeight: 800, letterSpacing: '0.08em', color: chatOpen ? '#000' : 'var(--gold)', background: chatOpen ? 'var(--gold)' : 'rgba(212,168,67,0.1)', border: '1px solid var(--gold)', borderRadius: 20, padding: '7px 16px', cursor: 'pointer', transition: 'all .2s' }}
           >
-            🎙 Ask A Pawn Shop Owner
+            Ask Paulie Pawn
           </button>
         </div>
       </header>
@@ -385,14 +385,26 @@ export default function Home() {
           )}
         </div>
 
-        {/* ── PAWN SHOP CHAT PANEL ────────────────────────────── */}
+        {/* ── PAULIE PAWN CHAT PANEL ──────────────────────────── */}
         {chatOpen && (
           <div style={{ width: 340, flexShrink: 0, paddingTop: 36 }}>
-            <div style={{ position: 'sticky', top: 80, background: 'var(--card)', border: '1px solid var(--border2)', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column', height: 'calc(100vh - 120px)', maxHeight: 640 }}>
-              {/* Chat header */}
-              <div style={{ padding: '14px 16px', borderBottom: '1px solid var(--border)', background: 'rgba(212,168,67,0.06)' }}>
-                <div style={{ fontSize: 13, fontWeight: 900, letterSpacing: '0.06em', color: 'var(--gold)' }}>🎙 Ask A Pawn Shop Owner</div>
-                <div style={{ fontSize: 10, color: 'var(--dim)', marginTop: 3 }}>30 years behind the counter. Ask anything.</div>
+            <div style={{ position: 'sticky', top: 80, background: 'var(--card)', border: '1px solid var(--border2)', borderRadius: 18, overflow: 'hidden', display: 'flex', flexDirection: 'column', height: 'calc(100vh - 120px)', maxHeight: 700 }}>
+
+              {/* Paulie hero */}
+              <div style={{ background: 'linear-gradient(180deg, rgba(212,168,67,0.12) 0%, rgba(212,168,67,0.04) 100%)', borderBottom: '1px solid var(--border)', padding: '16px 16px 0', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/paulie-pawn.png"
+                  alt="Paulie Pawn"
+                  style={{ width: 120, height: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 4px 16px rgba(212,168,67,0.35))', marginBottom: 10 }}
+                  onError={e => { (e.target as HTMLImageElement).style.display = 'none' }}
+                />
+                <div style={{ textAlign: 'center', paddingBottom: 14 }}>
+                  <div style={{ fontSize: 14, fontWeight: 900, letterSpacing: '0.04em', color: 'var(--gold)', lineHeight: 1.3 }}>Ask Paulie Pawn</div>
+                  <div style={{ fontSize: 11, color: 'var(--dim2)', marginTop: 4, lineHeight: 1.5 }}>
+                    Ask about your item, how to list,<br />what it&apos;s worth — anything.
+                  </div>
+                </div>
               </div>
 
               {/* Messages */}
@@ -401,7 +413,7 @@ export default function Home() {
                   <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                     {["What's this worth?", "eBay or Mercari for this?", "How do I ship it?", "What condition should I list?"].map(q => (
                       <button key={q} onClick={() => { setChatInput(q); }} style={{ textAlign: 'left', padding: '8px 12px', borderRadius: 10, background: 'var(--card2)', border: '1px solid var(--border)', color: 'var(--dim2)', fontSize: 12, cursor: 'pointer', fontStyle: 'italic' }}>
-                        "{q}"
+                        &ldquo;{q}&rdquo;
                       </button>
                     ))}
                     <div style={{ fontSize: 11, color: 'var(--dim)', textAlign: 'center', marginTop: 8 }}>or type your own question</div>
@@ -410,7 +422,7 @@ export default function Home() {
                 {chatMsgs.map((m, i) => (
                   <div key={i} style={{ display: 'flex', justifyContent: m.role === 'user' ? 'flex-end' : 'flex-start' }}>
                     <div style={{ maxWidth: '85%', padding: '9px 12px', borderRadius: m.role === 'user' ? '14px 14px 4px 14px' : '14px 14px 14px 4px', background: m.role === 'user' ? 'rgba(212,168,67,0.15)' : 'var(--card2)', border: `1px solid ${m.role === 'user' ? 'rgba(212,168,67,0.2)' : 'var(--border)'}`, fontSize: 13, lineHeight: 1.55, color: 'var(--text)' }}>
-                      {m.role === 'assistant' && <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', color: 'var(--gold)', display: 'block', marginBottom: 4 }}>THE OWNER</span>}
+                      {m.role === 'assistant' && <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', color: 'var(--gold)', display: 'block', marginBottom: 4 }}>PAULIE PAWN</span>}
                       {m.content}
                     </div>
                   </div>
@@ -418,7 +430,7 @@ export default function Home() {
                 {chatLoading && (
                   <div style={{ display: 'flex', justifyContent: 'flex-start' }}>
                     <div style={{ padding: '9px 14px', borderRadius: '14px 14px 14px 4px', background: 'var(--card2)', border: '1px solid var(--border)', fontSize: 13, color: 'var(--dim)' }}>
-                      <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', color: 'var(--gold)', display: 'block', marginBottom: 4 }}>THE OWNER</span>
+                      <span style={{ fontSize: 10, fontWeight: 800, letterSpacing: '0.1em', color: 'var(--gold)', display: 'block', marginBottom: 4 }}>PAULIE PAWN</span>
                       thinking…
                     </div>
                   </div>
@@ -432,7 +444,7 @@ export default function Home() {
                   value={chatInput}
                   onChange={e => setChatInput(e.target.value)}
                   onKeyDown={e => e.key === 'Enter' && sendChat()}
-                  placeholder="Ask the owner…"
+                  placeholder="Ask Paulie…"
                   style={{ flex: 1, background: 'var(--card2)', border: '1px solid var(--border2)', borderRadius: 10, padding: '9px 12px', color: 'var(--text)', fontSize: 13, outline: 'none' }}
                 />
                 <button onClick={sendChat} disabled={!chatInput.trim() || chatLoading} style={{ padding: '0 14px', borderRadius: 10, background: chatInput.trim() ? 'var(--gold)' : 'var(--border)', color: chatInput.trim() ? '#000' : 'var(--dim)', border: 'none', fontWeight: 900, fontSize: 16, cursor: chatInput.trim() ? 'pointer' : 'not-allowed' }}>→</button>
