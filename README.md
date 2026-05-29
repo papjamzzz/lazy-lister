@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+<div align="center">
 
-## Getting Started
+# Lazy Lister
 
-First, run the development server:
+**AI marketplace listing generator.**
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Drop a photo. Get instant listings for every major resale platform — ready to post.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+</div>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## What It Does
 
-## Learn More
+Take a photo of anything you want to sell. Lazy Lister identifies the item, researches the market, and generates optimized listings for every major resale platform simultaneously.
 
-To learn more about Next.js, take a look at the following resources:
+No manual writing. No price guessing. No formatting. Just done.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Supported Platforms
 
-## Deploy on Vercel
+| Platform | What You Get |
+|----------|-------------|
+| eBay | Title, description, item specifics, condition, price range |
+| Facebook Marketplace | Casual listing with local-sell framing |
+| Craigslist | Clean, no-frills listing |
+| Mercari | Hashtags, brand, size, color |
+| OfferUp | Mobile-optimized listing |
+| Etsy | Tags, materials, who_made, when_made |
+| Reverb | Make, model, year, condition grade, what's included |
+| Poshmark | Brand, size, original price, hashtags |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Features
+
+- **Drag-and-drop photo upload** — or camera capture on mobile
+- **AI item identification** — Claude identifies what it is before writing
+- **Platform-specific formatting** — each listing is native to its platform
+- **Price research** — suggested price range based on market data
+- **Chat follow-up** — ask questions about the listing
+
+---
+
+## Stack
+
+Next.js · TypeScript · Claude AI (Vision) · Tailwind CSS
+
+---
+
+<div align="center">
+
+**Creative Konsoles** · [creativekonsoles.com](https://creativekonsoles.com) · [@papjamzzz](https://github.com/papjamzzz)
+
+</div>
